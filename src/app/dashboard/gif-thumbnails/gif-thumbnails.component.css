@@ -1,0 +1,10 @@
+ @media (min-width: 576px) {
+    #modal_video {
+        max-width: 600px !important;
+        }
+} 
+
+
+#video_size {
+    width: 100%;
+}

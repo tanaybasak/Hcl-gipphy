@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 mb-4" *ngFor="let data of giphies; let i = index">
+            <div class="card bg-light text-dark">
+                <div class="card-body" (click)="previewImage(data.id,i)">
+                    <img [src]=" (i == selectedIndex) ?  previewSrc : data.images.original_still.url " width="250" height="150"/>
+                        <div *ngIf="i == selectedIndex" class="text-center mt-2">
+                            <button class="btn btn-primary" (click)="playVideo()">  Click here to play Video </button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title"> Gippy Video</h4>
+          <button type="button" class="close" data-dismiss="modal" (click)="modalClosed()">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+            <div *ngIf="viewSrc">
+                <video id="video_size" controls="controls" autoplay [src]="viewSrc"> </video>
+            </div>
+        </div>
+        
+      
+        
+      </div>
+    </div>
+  </div>

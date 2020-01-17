@@ -1,0 +1,23 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <div class="container-fluid text-center">
+                <input type="text" class="text_box" [(ngModel)]="searchItem" (keyup)="onKey($event)" />
+                <button class="btn btn-primary search_button" type="submit" (click)="performSearch()"> Search </button>
+            </div>
+            <div class="text-center pt-3" *ngIf="storedSearch.length">
+                <div *ngFor="let search of storedSearch" (click)="useKeyword(search)" class="search_previous">
+                    {{search}}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+</div>
+
+
+
+<div class="gifThumbnails">
+    <app-gif-thumbnails [searchItemData]="searchData"></app-gif-thumbnails>
+</div>
